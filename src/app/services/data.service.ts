@@ -1,7 +1,6 @@
 import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable } from "rxjs/internal/Observable";
-import { take } from "rxjs/operators";
 
 @Injectable({
   providedIn: "root"
@@ -10,7 +9,13 @@ export class DataService<T> {
   constructor(private url: string, private httpClient: HttpClient) {}
 
   getAll(): Observable<T[]> {
-    return this.httpClient.get<T[]>(this.url).pipe(take(10));
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "Content-Type": "application/json",
+        Authorization: "Bearer Jn-aQSeTQ21B-v-tauQb-8KRnjAOPLlP1No7"
+      })
+    };
+    return this.httpClient.get<T[]>(this.url, httpOptions);
   }
 
   get(id: number): Observable<T> {
