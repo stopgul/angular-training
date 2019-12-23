@@ -1,0 +1,17 @@
+<p>
+  album-list works!
+</p>
+<table class="table">
+  <tbody>
+    <tr *ngFor="let a of albumResults">
+      <td>{{ a.id }}</td>
+      <td>{{ a.title }}</td>
+      <td>{{ a.user_id }}</td>
+      <td>{{ a._links.self.href }}</td>
+      <!-- <td>{{ a.contact.name }}</td> -->
+      <!-- <td>
+        <a [routerLink]="['/authors/', a.id]">View</a>
+      </td> -->
+    </tr>
+  </tbody>
+</table>
