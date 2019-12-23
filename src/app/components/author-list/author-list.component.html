@@ -1,0 +1,16 @@
+<p>
+  author-list works!
+</p>
+
+<table class="table">
+  <tr *ngFor="let a of authors">
+    <td>{{ a.ID }}</td>
+    <td>{{ a.FirstName }}</td>
+    <td>{{ a.LastName }}</td>
+    <td>{{ a.IDBook }}</td>
+    <!-- <td>{{ a.contact.name }}</td> -->
+    <!-- <td>
+        <a [routerLink]="['/authors/', a.id]">View</a>
+      </td> -->
+  </tr>
+</table>
