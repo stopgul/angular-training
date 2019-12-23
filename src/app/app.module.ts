@@ -7,11 +7,12 @@ import { AuthorListComponent } from "./components/author-list/author-list.compon
 import { PageNotFoundComponent } from "./components/page-not-found/page-not-found.component";
 import { HttpClientModule } from "@angular/common/http";
 import { AlbumListComponent } from "./components/album-list/album-list.component";
+import { AuthGuard } from "./services/auth-guard.service";
 
 const routes: Routes = [
   { path: "", redirectTo: "authors", pathMatch: "full" },
   { path: "authors", component: AuthorListComponent },
-  { path: "albums", component: AlbumListComponent },
+  { path: "albums", component: AlbumListComponent, canActivate: [AuthGuard] },
   { path: "page", component: PageNotFoundComponent },
   { path: "**", component: PageNotFoundComponent }
 ];
