@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs/internal/Observable";
+import { take } from "rxjs/operators";
 
 @Injectable({
   providedIn: "root"
@@ -9,7 +10,7 @@ export class DataService<T> {
   constructor(private url: string, private httpClient: HttpClient) {}
 
   getAll(): Observable<T[]> {
-    return this.httpClient.get<T[]>(this.url);
+    return this.httpClient.get<T[]>(this.url).pipe(take(10));
   }
 
   get(id: number): Observable<T> {

@@ -17,6 +17,8 @@ export class AuthorListComponent implements OnInit {
   }
 
   getAuthors() {
-    this.authorService.getAll().subscribe(res => (this.authors = res));
+    this.authorService
+      .getAll()
+      .subscribe(res => (this.authors = res.filter(t => t.IDBook === 200)));
   }
 }
