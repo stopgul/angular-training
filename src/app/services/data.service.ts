@@ -6,13 +6,15 @@ import { Observable } from "rxjs/internal/Observable";
   providedIn: "root"
 })
 export class DataService<T> {
-  constructor(private url: string, private httpClient: HttpClient) {}
+  constructor(private url: string, private httpClient: HttpClient) {
+    localStorage.setItem("token", "My64m_rDVhm2kscMQHPF-ce2pEIIETvYNOa5");
+  }
 
   getAll(): Observable<T[]> {
     const httpOptions = {
       headers: new HttpHeaders({
         "Content-Type": "application/json",
-        Authorization: "Bearer My64m_rDVhm2kscMQHPF-ce2pEIIETvYNOa5"
+        Authorization: "Bearer " + localStorage.getItem("token")
       })
     };
     return this.httpClient.get<T[]>(this.url, httpOptions);
@@ -22,7 +24,7 @@ export class DataService<T> {
     const httpOptions = {
       headers: new HttpHeaders({
         "Content-Type": "application/json",
-        Authorization: "Bearer My64m_rDVhm2kscMQHPF-ce2pEIIETvYNOa5"
+        Authorization: "Bearer " + localStorage.getItem("token")
       })
     };
     return this.httpClient.get<T>(this.url, httpOptions);
