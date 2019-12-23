@@ -12,10 +12,20 @@ export class DataService<T> {
     const httpOptions = {
       headers: new HttpHeaders({
         "Content-Type": "application/json",
-        Authorization: "Bearer Jn-aQSeTQ21B-v-tauQb-8KRnjAOPLlP1No7"
+        Authorization: "Bearer My64m_rDVhm2kscMQHPF-ce2pEIIETvYNOa5"
       })
     };
     return this.httpClient.get<T[]>(this.url, httpOptions);
+  }
+
+  getAllSingle(): Observable<T> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "Content-Type": "application/json",
+        Authorization: "Bearer My64m_rDVhm2kscMQHPF-ce2pEIIETvYNOa5"
+      })
+    };
+    return this.httpClient.get<T>(this.url, httpOptions);
   }
 
   get(id: number): Observable<T> {

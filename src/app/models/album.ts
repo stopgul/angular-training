@@ -1,9 +1,9 @@
 export interface AlbumResult {
-  _meta: Meta;
-  result: Album[];
+  _meta: _meta;
+  result: result[];
 }
 
-export interface Meta {
+export interface _meta {
   success: boolean;
   code: number;
   message: string;
@@ -20,8 +20,7 @@ export interface RateLimit {
   reset: number;
 }
 
-@JsonProperty("second-line")
-export interface Album {
+export interface result {
   id: string;
   user_id: string;
   title: string;
