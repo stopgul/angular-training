@@ -8,7 +8,7 @@ import { Author } from "src/app/models/author";
   styleUrls: ["./author-list.component.css"]
 })
 export class AuthorListComponent implements OnInit {
-  authors: Author[];
+  public authors: Author[];
 
   constructor(public authorService: AuthorService) {}
 
@@ -17,6 +17,6 @@ export class AuthorListComponent implements OnInit {
   }
 
   getAuthors() {
-    this.authorService.getAuthors().subscribe(res => (this.authors = res));
+    this.authorService.getAll().subscribe(res => (this.authors = res));
   }
 }
