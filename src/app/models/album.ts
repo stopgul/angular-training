@@ -3,6 +3,11 @@ export interface AlbumResult {
   result: result[];
 }
 
+export interface AlbumResultSingle {
+  _meta: _meta;
+  result: result;
+}
+
 export interface _meta {
   success: boolean;
   code: number;

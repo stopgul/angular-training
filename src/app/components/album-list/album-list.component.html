@@ -1,9 +1,6 @@
-<p>
-  album-list works!
-</p>
 <table class="table">
   <tbody>
-    <tr *ngFor="let a of albumResults">
+    <tr *ngFor="let a of albumResults" (click)="onSelect(a)">
       <td>{{ a.id }}</td>
       <td>{{ a.title }}</td>
       <td>{{ a.user_id }}</td>
@@ -15,3 +12,12 @@
     </tr>
   </tbody>
 </table>
+
+<div *ngIf="selectedAlbum">
+  <h2>{{ selectedAlbum.title | uppercase }} is my hero</h2>
+  <button (click)="gotoDetail()">View Details</button>
+  <br />
+  <a [routerLink]="['/album/', selectedAlbum.id]">View Details</a>
+</div>
+
+<app-album-detail [album]="selectedAlbum"></app-album-detail>

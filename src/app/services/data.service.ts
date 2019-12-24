@@ -31,8 +31,13 @@ export class DataService<T> {
   }
 
   get(id: number): Observable<T> {
-    return this.httpClient.get<T>(`${this.url}/${id}`);
-    //.pipe(map((data: any) => this.serializer.fromJson(data) as T));
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + localStorage.getItem("token")
+      })
+    };
+    return this.httpClient.get<T>(`${this.url}/${id}`, httpOptions);
   }
 
   public create(item: T): Observable<T> {
