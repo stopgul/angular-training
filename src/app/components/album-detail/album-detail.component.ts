@@ -17,7 +17,6 @@ export class AlbumDetailComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.forEach((params: Params) => {
-      console.log(JSON.stringify(params) + " " + params["id"]);
       if (params["id"] !== undefined) {
         const id = +params["id"];
         this.albumService.get(id).subscribe(res => {

@@ -11,33 +11,21 @@ export class DataService<T> {
   }
 
   getAll(): Observable<T[]> {
-    const httpOptions = {
-      headers: new HttpHeaders({
-        "Content-Type": "application/json",
-        Authorization: "Bearer " + localStorage.getItem("token")
-      })
-    };
-    return this.httpClient.get<T[]>(this.url, httpOptions);
+    // const httpOptions = {
+    //   headers: new HttpHeaders({
+    //     "Content-Type": "application/json",
+    //     Authorization: "Bearer " + localStorage.getItem("token")
+    //   })
+    // };
+    return this.httpClient.get<T[]>(this.url);
   }
 
   getAllSingle(): Observable<T> {
-    const httpOptions = {
-      headers: new HttpHeaders({
-        "Content-Type": "application/json",
-        Authorization: "Bearer " + localStorage.getItem("token")
-      })
-    };
-    return this.httpClient.get<T>(this.url, httpOptions);
+    return this.httpClient.get<T>(this.url);
   }
 
   get(id: number): Observable<T> {
-    const httpOptions = {
-      headers: new HttpHeaders({
-        "Content-Type": "application/json",
-        Authorization: "Bearer " + localStorage.getItem("token")
-      })
-    };
-    return this.httpClient.get<T>(`${this.url}/${id}`, httpOptions);
+    return this.httpClient.get<T>(`${this.url}/${id}`);
   }
 
   public create(item: T): Observable<T> {
