@@ -5,11 +5,12 @@ import { AppComponent } from "./app.component";
 import { AuthorService } from "./services/author.service";
 import { AuthorListComponent } from "./components/author-list/author-list.component";
 import { PageNotFoundComponent } from "./components/page-not-found/page-not-found.component";
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { AlbumListComponent } from "./components/album-list/album-list.component";
 import { AuthGuard } from "./services/auth-guard.service";
 import { AlbumDetailComponent } from "./components/album-detail/album-detail.component";
 import { FormsModule } from "@angular/forms";
+import { HttpTokenInterceptor } from "./interceptors/http-token-interceptor";
 
 const routes: Routes = [
   { path: "", redirectTo: "authors", pathMatch: "full" },
@@ -39,7 +40,10 @@ const routes: Routes = [
     AlbumDetailComponent
   ],
 
-  providers: [AuthorService],
+  providers: [
+    AuthorService,
+    { provide: HTTP_INTERCEPTORS, useClass: HttpTokenInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
