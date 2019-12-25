@@ -14,7 +14,6 @@ export class AlbumListComponent implements OnInit {
   constructor(public albumService: AlbumService, private router: Router) {}
 
   ngOnInit() {
-    let albumResult: any;
     this.albumService.getAllSingle().subscribe(res => {
       this.albumResults = (res as AlbumResult).result;
     });

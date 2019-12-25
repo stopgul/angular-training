@@ -11,6 +11,8 @@ import { AuthGuard } from "./services/auth-guard.service";
 import { AlbumDetailComponent } from "./components/album-detail/album-detail.component";
 import { FormsModule } from "@angular/forms";
 import { HttpTokenInterceptor } from "./interceptors/http-token-interceptor";
+import { ChildForViewChildComponent } from "./components/parent-child/child-for-view-child/child-for-view-child.component";
+import { ParentForViewChildComponent } from "./components/parent-child/parent-for-view-child/parent-for-view-child.component";
 
 const routes: Routes = [
   { path: "", redirectTo: "authors", pathMatch: "full" },
@@ -21,7 +23,7 @@ const routes: Routes = [
     component: AlbumDetailComponent,
     canActivate: [AuthGuard]
   },
-  { path: "page", component: PageNotFoundComponent },
+  { path: "parentforviewchild", component: ParentForViewChildComponent },
   { path: "**", component: PageNotFoundComponent }
 ];
 
@@ -37,7 +39,9 @@ const routes: Routes = [
     AuthorListComponent,
     PageNotFoundComponent,
     AlbumListComponent,
-    AlbumDetailComponent
+    AlbumDetailComponent,
+    ChildForViewChildComponent,
+    ParentForViewChildComponent
   ],
 
   providers: [
