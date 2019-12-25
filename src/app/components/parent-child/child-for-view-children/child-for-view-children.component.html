@@ -1,0 +1,12 @@
+<p>
+  child-for-view-children works!
+</p>
+<div *ngIf="album" class="container">
+  <h2>title: {{ album.title }}</h2>
+  <div><label>id: </label>{{ album.id }}</div>
+  <div>
+    <label>name: </label>
+    <input [(ngModel)]="album.user_id" placeholder="name" />
+  </div>
+  <div><label>message: </label>{{ message }}</div>
+</div>

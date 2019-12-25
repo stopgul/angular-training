@@ -13,6 +13,8 @@ import { FormsModule } from "@angular/forms";
 import { HttpTokenInterceptor } from "./interceptors/http-token-interceptor";
 import { ChildForViewChildComponent } from "./components/parent-child/child-for-view-child/child-for-view-child.component";
 import { ParentForViewChildComponent } from "./components/parent-child/parent-for-view-child/parent-for-view-child.component";
+import { ParentForViewChildrenComponent } from "./components/parent-child/parent-for-view-children/parent-for-view-children.component";
+import { ChildForViewChildrenComponent } from "./components/parent-child/child-for-view-children/child-for-view-children.component";
 
 const routes: Routes = [
   { path: "", redirectTo: "authors", pathMatch: "full" },
@@ -24,6 +26,7 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   { path: "parentforviewchild", component: ParentForViewChildComponent },
+  { path: "parentforviewchildren", component: ParentForViewChildrenComponent },
   { path: "**", component: PageNotFoundComponent }
 ];
 
@@ -41,7 +44,9 @@ const routes: Routes = [
     AlbumListComponent,
     AlbumDetailComponent,
     ChildForViewChildComponent,
-    ParentForViewChildComponent
+    ParentForViewChildComponent,
+    ParentForViewChildrenComponent,
+    ChildForViewChildrenComponent
   ],
 
   providers: [
